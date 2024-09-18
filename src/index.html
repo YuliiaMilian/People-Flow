@@ -2,12 +2,147 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>AngularTemplate</title>
+    <title>People Flow</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-    <ngt-root></ngt-root>
+    <nav class="navbar">
+      <div class="navbar__menu">
+        <a class="navbar__menu-link" href="#why-people-flow">Why People Flow?</a>
+        <a class="navbar__menu-link" href="#our-platform">Our Platform</a>
+        <a class="navbar__menu-link" href="#help-support">Help & Support</a>
+        <a class="navbar__menu-link" href="#feedback">Feedback</a>
+        <a class="navbar__menu-link" href="#contact-info">Contact us</a>
+      </div>
+      <div class="navbar__auth-flow">
+        <a class="navbar__auth-button log-in" href="#log-in">Log in</a>
+        <a class="navbar__auth-button sign-up" href="#sign-up">Sign up</a>
+      </div>
+    </nav>
+
+    <section class="feedback-form">
+      <form action="" class="feedback-form__container">
+        <fieldset class="feedback-form__fieldset">
+          <header class="feedback-form__header">
+            <h3 class="feedback-form__title">We value your feedback! Please let us know your thoughts.</h3>
+          </header>
+
+          <div class="feedback-form__form-group">
+            <label class="feedback-form__label" for="name">Your Name:</label>
+            <input
+              placeholder="Enter your name"
+              class="feedback-form__input"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+
+          <div class="feedback-form__form-group">
+            <label class="feedback-form__label" for="email">Email:</label>
+            <input
+              placeholder="Enter your email"
+              class="feedback-form__input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+
+          <div class="feedback-form__form-group">
+            <label class="feedback-form__label" for="category">Feedback Category:</label>
+            <select class="feedback-form__select" id="category" name="category" required>
+              <option value="" disabled selected hidden>Select category</option>
+              <option value="product">Product</option>
+              <option value="service">Service</option>
+              <option value="support">Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="feedback-form__form-group">
+            <label class="feedback-form__label" for="rating">Rate Us:</label>
+            <div class="feedback-form__rating">
+              <label>
+                <input type="radio" name="rating" value="1" required />
+                1
+              </label>
+              <label>
+                <input type="radio" name="rating" value="2" />
+                2
+              </label>
+              <label>
+                <input type="radio" name="rating" value="3" />
+                3
+              </label>
+              <label>
+                <input type="radio" name="rating" value="4" />
+                4
+              </label>
+              <label>
+                <input type="radio" name="rating" value="5" />
+                5
+              </label>
+            </div>
+          </div>
+
+          <div class="feedback-form__form-group">
+            <label class="feedback-form__label" for="message">Your Feedback:</label>
+            <textarea
+              placeholder="Enter your feedback here"
+              class="feedback-form__textarea"
+              id="message"
+              name="message"
+              required
+            ></textarea>
+          </div>
+
+          <div class="feedback-form__form-group">
+            <label class="feedback-form__label" for="improvements">Suggestions for Improvement:</label>
+            <textarea
+              placeholder="What can we do better?"
+              class="feedback-form__textarea"
+              id="improvements"
+              name="improvements"
+            ></textarea>
+          </div>
+
+          <div class="feedback-form__control">
+            <button class="feedback-form__submit-btn" type="submit">Submit</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__about">
+          <h3>About Us</h3>
+          <p>
+            We are committed to helping you succeed in your HR needs with innovative solutions and excellent support.
+          </p>
+        </div>
+        <div class="footer__contact">
+          <h3>Contact Us</h3>
+          <p>
+            For inquiries, reach us at: <br />
+            <a href="mailto:Juliamilan1414@gmail.com">Juliamilan1414@gmail.com</a>
+          </p>
+        </div>
+        <div class="footer__newsletter">
+          <h3>Subscribe to Our Newsletter</h3>
+          <form class="footer__newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 HR Tools. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
