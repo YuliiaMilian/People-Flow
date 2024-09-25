@@ -1,0 +1,88 @@
+<section class="feedback-form">
+  <form action="" class="feedback-form__container">
+    <fieldset class="feedback-form__fieldset">
+      <header class="feedback-form__header">
+        <h3 class="feedback-form__title">We value your feedback! Please let us know your thoughts.</h3>
+      </header>
+
+      <div class="feedback-form__form-group">
+        <label class="feedback-form__label" for="name">Your Name:</label>
+        <input placeholder="Enter your name" class="feedback-form__input" type="text" id="name" name="name" required />
+      </div>
+
+      <div class="feedback-form__form-group">
+        <label class="feedback-form__label" for="email">Email:</label>
+        <input
+          placeholder="Enter your email"
+          class="feedback-form__input"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="feedback-form__form-group">
+        <label class="feedback-form__label" for="category">Feedback Category:</label>
+        <select class="feedback-form__select" id="category" name="category" required>
+          <option value="" disabled selected hidden>Select category</option>
+          <option value="product">Product</option>
+          <option value="service">Service</option>
+          <option value="support">Support</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="feedback-form__form-group">
+        <label class="feedback-form__label" for="rating">Rate Us:</label>
+        <div class="feedback-form__rating">
+          <label>
+            <input type="radio" name="rating" value="1" required />
+            1
+          </label>
+          <label>
+            <input type="radio" name="rating" value="2" />
+            2
+          </label>
+          <label>
+            <input type="radio" name="rating" value="3" />
+            3
+          </label>
+          <label>
+            <input type="radio" name="rating" value="4" />
+            4
+          </label>
+          <label>
+            <input type="radio" name="rating" value="5" />
+            5
+          </label>
+        </div>
+      </div>
+
+      <div class="feedback-form__form-group">
+        <label class="feedback-form__label" for="message">Your Feedback:</label>
+        <textarea
+          placeholder="Enter your feedback here"
+          class="feedback-form__textarea"
+          id="message"
+          name="message"
+          required
+        ></textarea>
+      </div>
+
+      <div class="feedback-form__form-group">
+        <label class="feedback-form__label" for="improvements">Suggestions for Improvement:</label>
+        <textarea
+          placeholder="What can we do better?"
+          class="feedback-form__textarea"
+          id="improvements"
+          name="improvements"
+        ></textarea>
+      </div>
+
+      <div class="feedback-form__control">
+        <button class="feedback-form__submit-btn" type="submit">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+</section>
