@@ -6,13 +6,21 @@ import { environment } from '@Environment';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { FeatureDescriptionComponent } from './feature-description/feature-description.component';
 
 @Component({
   selector: 'ngt-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FeedbackFormComponent, FooterComponent, AppComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FeedbackFormComponent,
+    FooterComponent,
+    AppComponent,
+    FeatureDescriptionComponent,
+  ],
 })
 export class AppComponent implements OnInit {
   constructor(private readonly translateService: TranslateService) {}
@@ -32,5 +40,4 @@ export class AppComponent implements OnInit {
     this.footerComponent.changeText('New title footer');
     this.feedbackFormComponent.changeText('New title feedbackForm');
   }
-
 }

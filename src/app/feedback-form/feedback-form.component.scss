@@ -1,4 +1,4 @@
-.feedback-form {
+.contact-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,22 +8,29 @@
     width: 100%;
     max-width: 600px;
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    border: 2px solid #59C4EB;
+    border: 2px solid #B8E3DD;
   }
 
   &__header {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   &__title {
-    font-size: 24px;
-    color: #59C4EB;
+    font-size: 26px;
+    color: #2E3A59;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   &__form-group {
@@ -32,7 +39,7 @@
 
   &__label {
     font-size: 16px;
-    color: #333333;
+    color: #2E3A59;
     margin-bottom: 5px;
     display: block;
   }
@@ -43,18 +50,18 @@
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    border: 2px solid #5ADFDF;
+    border: 2px solid #D1EFF2;
     border-radius: 10px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #F7F9FC;
+    background-color: #F1FAFD;
 
     &::placeholder {
       color: #A9A9A9;
     }
 
     &:focus {
-      border-color: #59C4EB;
-      box-shadow: 0 0 8px rgba(89, 196, 235, 0.5);
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
       outline: none;
     }
   }
@@ -75,16 +82,16 @@
     padding: 12px;
     font-size: 16px;
     font-weight: bold;
-    color: #FFFFFF;
-    background-color: #5ADFDF;
+    color: #2E3A59;
+    background-color: #A9D6EB;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-      background-color: #59C4EB;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      background-color: #0056b3;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     }
 
     &:focus {
@@ -96,6 +103,6 @@
     margin-top: 20px;
     font-size: 14px;
     text-align: center;
-    color: #333333;
+    color: #2E3A59;
   }
 }
