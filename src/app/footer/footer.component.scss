@@ -1,6 +1,6 @@
 .footer {
-  background-color: #5ADFDF;
-  color: #ffffff;
+  background-color: #A9D6EB;
+  color: #2E3A59;
   padding: 40px 20px;
   text-align: center;
 
@@ -23,18 +23,18 @@
 
     h3 {
       font-size: 20px;
-      margin-bottom: 15px;
-      color: #333333;
+      color: #2E3A59;
     }
 
     p {
       font-size: 16px;
       line-height: 1.5;
+      color: #4A4A4A;
     }
   }
 
   &__newsletter {
-    margin-top: 20px;
+
 
     &-form {
       display: flex;
@@ -44,23 +44,28 @@
 
       input {
         padding: 10px;
-        border: none;
+        border: 2px solid #B8E3DD;
         border-radius: 5px;
         width: 200px;
+        background-color: #F1FAFD;
+
+        &::placeholder {
+          color: #A9A9A9;
+        }
       }
 
       button {
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
-        background-color: #59C4EB;
-        color: #ffffff;
+        background-color: #B8E3DD;
+        color: #2E3A59;
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: #5ADFDF;
+          background-color: #A9D6EB;
         }
       }
     }
@@ -69,6 +74,6 @@
   &__bottom {
     margin-top: 20px;
     font-size: 14px;
-    color: #333333;
+    color: #4A4A4A;
   }
 }

@@ -1,17 +1,17 @@
 .navbar {
-  background-color: #59C4EB;
+  background-color: #EAF6FF;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 
   &__menu {
     display: flex;
     gap: 20px;
 
     &-link {
-      color: #FFFFFF;
+      color: #2E3A59;
       text-decoration: none;
       font-size: 16px;
       font-weight: bold;
@@ -20,8 +20,8 @@
       transition: background-color 0.3s, color 0.3s;
 
       &:hover {
-        background-color: #5ADFDF;
-        color: #000000;
+        background-color: #D1EFF2;
+        color: #1C2B3A;
       }
     }
   }
@@ -42,23 +42,23 @@
 }
 
 .log-in {
-  background-color: #59C4EB;
-  color: white;
-  border: 2px solid #59C4EB;
+  background-color: #A9D6EB;
+  color: #FFFFFF;
+  border: 2px solid #A9D6EB;
 
   &:hover {
-    background-color: white;
-    color: #59C4EB;
+    background-color: #FFFFFF;
+    color: #A9D6EB;
   }
 }
 
 .sign-up {
-  background-color: white;
-  color: #5ADFDF;
-  border: 2px solid #5ADFDF;
+  background-color: #FFFFFF;
+  color: #B8E3DD;
+  border: 2px solid #B8E3DD;
 
   &:hover {
-    background-color: #5ADFDF;
-    color: white;
+    background-color: #B8E3DD;
+    color: #FFFFFF;
   }
 }
