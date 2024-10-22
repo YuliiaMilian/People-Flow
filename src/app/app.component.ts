@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { environment } from '@Environment';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -12,5 +13,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   constructor(private readonly translateService: TranslateService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.translateService.setDefaultLang(environment.defaultLanguage);
+
+    this.translateService.use(environment.defaultLanguage);
+  }
 }
