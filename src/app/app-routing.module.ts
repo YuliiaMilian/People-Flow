@@ -5,7 +5,7 @@ import { AppRoutes } from '@Enums/routes.enum';
 const routes: Routes = [
   {
     path: AppRoutes.Empty,
-    loadComponent: () => import('./home/home.component').then((x) => x.HomeComponent),
+    redirectTo: AppRoutes.HomePage,
     pathMatch: 'full',
   },
   {
