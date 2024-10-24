@@ -97,6 +97,10 @@
     &:focus {
       outline: none;
     }
+    &:disabled {
+      background-color: lightgrey;
+      cursor: not-allowed;
+    }
   }
 
   &__additional-info {
@@ -105,4 +109,11 @@
     text-align: center;
     color: #2E3A59;
   }
+}
+
+.error-message {
+  color: red;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 5px;
 }
