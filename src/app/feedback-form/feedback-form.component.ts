@@ -1,11 +1,13 @@
 import { NgIf } from '@angular/common';
+import { LetDeclaration } from '@angular/compiler';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LetDirective } from '@ngrx/component';
 
 @Component({
   selector: 'ngt-feedback-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, LetDirective],
   templateUrl: './feedback-form.component.html',
   styleUrl: './feedback-form.component.scss',
 })
