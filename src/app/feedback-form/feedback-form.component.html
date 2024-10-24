@@ -1,5 +1,5 @@
 <section class="contact-form">
-  <form action="" class="contact-form__container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" action="" class="contact-form__container">
     <fieldset class="contact-form__fieldset">
       <header class="contact-form__header">
         <h3 class="contact-form__title">Get in Touch with Us!</h3>
@@ -8,7 +8,10 @@
 
       <div class="contact-form__form-group">
         <label class="contact-form__label" for="name">Your Name:</label>
-        <input placeholder="Enter your name" class="contact-form__input" type="text" id="name" name="name" required />
+        <input placeholder="Enter your name" class="contact-form__input" type="text" id="name" formControlName="name" />
+        <div class="error-message" [hidden]="!(form.get('name')?.invalid && form.get('name')?.touched)">
+          Your Name is required
+        </div>
       </div>
 
       <div class="contact-form__form-group">
@@ -18,9 +21,22 @@
           class="contact-form__input"
           type="email"
           id="email"
-          name="email"
-          required
+          formControlName="email"
         />
+        <div
+          class="error-message"
+          [hidden]="
+            !(form.get('email')?.touched && form.get('email')?.hasError('required') && !form.get('email')?.value)
+          "
+        >
+          Your Email is required
+        </div>
+        <div
+          class="error-message"
+          [hidden]="!(form.get('email')?.hasError('email') && !form.get('email')?.hasError('required'))"
+        >
+          Invalid email format
+        </div>
       </div>
 
       <div class="contact-form__form-group">
@@ -30,9 +46,11 @@
           class="contact-form__input"
           type="text"
           id="subject"
-          name="subject"
-          required
+          formControlName="subject"
         />
+        <div class="error-message" [hidden]="!(form.get('subject')?.invalid && form.get('subject')?.touched)">
+          Your Subject is required
+        </div>
       </div>
 
       <div class="contact-form__form-group">
@@ -40,15 +58,16 @@
         <textarea
           placeholder="Write your message here..."
           class="contact-form__textarea"
+          type="text"
           id="message"
-          name="message"
-          required
+          formControlName="message"
         ></textarea>
+        <div class="error-message" [hidden]="!(form.get('message')?.invalid && form.get('message')?.touched)">
+          Your Message is required
+        </div>
       </div>
 
-      <div class="contact-form__control">
-        <button class="contact-form__submit-btn" type="submit">Send Message</button>
-      </div>
+      <button class="contact-form__submit-btn" type="submit" [disabled]="form.invalid">Send Message</button>
     </fieldset>
   </form>
 </section>
