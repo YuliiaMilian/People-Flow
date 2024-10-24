@@ -1,5 +1,5 @@
 <section class="contact-form">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" action="" class="contact-form__container">
+  <form [formGroup]="form" action="" class="contact-form__container">
     <fieldset class="contact-form__fieldset">
       <header class="contact-form__header">
         <h3 class="contact-form__title">Get in Touch with Us!</h3>
@@ -9,9 +9,9 @@
       <div class="contact-form__form-group">
         <label class="contact-form__label" for="name">Your Name:</label>
         <input placeholder="Enter your name" class="contact-form__input" type="text" id="name" formControlName="name" />
-        <div class="error-message" [hidden]="!(form.get('name')?.invalid && form.get('name')?.touched)">
+        <span class="error-message" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
           Your Name is required
-        </div>
+        </span>
       </div>
 
       <div class="contact-form__form-group">
@@ -23,20 +23,15 @@
           id="email"
           formControlName="email"
         />
-        <div
-          class="error-message"
-          [hidden]="
-            !(form.get('email')?.touched && form.get('email')?.hasError('required') && !form.get('email')?.value)
-          "
-        >
+        <span class="error-message" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
           Your Email is required
-        </div>
-        <div
+        </span>
+        <span
           class="error-message"
-          [hidden]="!(form.get('email')?.hasError('email') && !form.get('email')?.hasError('required'))"
+          *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')"
         >
           Invalid email format
-        </div>
+        </span>
       </div>
 
       <div class="contact-form__form-group">
@@ -48,9 +43,9 @@
           id="subject"
           formControlName="subject"
         />
-        <div class="error-message" [hidden]="!(form.get('subject')?.invalid && form.get('subject')?.touched)">
+        <span class="error-message" *ngIf="form.get('subject')?.invalid && form.get('subject')?.touched">
           Your Subject is required
-        </div>
+        </span>
       </div>
 
       <div class="contact-form__form-group">
@@ -62,12 +57,14 @@
           id="message"
           formControlName="message"
         ></textarea>
-        <div class="error-message" [hidden]="!(form.get('message')?.invalid && form.get('message')?.touched)">
+        <span class="error-message" *ngIf="form.get('message')?.invalid && form.get('message')?.touched">
           Your Message is required
-        </div>
+        </span>
       </div>
 
-      <button class="contact-form__submit-btn" type="submit" [disabled]="form.invalid">Send Message</button>
+      <button class="contact-form__submit-btn" type="submit" (click)="onSubmit()" [disabled]="form.invalid">
+        Send Message
+      </button>
     </fieldset>
   </form>
 </section>
