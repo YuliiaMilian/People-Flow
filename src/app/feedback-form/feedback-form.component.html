@@ -1,5 +1,5 @@
 <section class="contact-form">
-  <form action="" class="contact-form__container">
+  <form [formGroup]="form" action="" class="contact-form__container">
     <fieldset class="contact-form__fieldset">
       <header class="contact-form__header">
         <h3 class="contact-form__title">Get in Touch with Us!</h3>
@@ -8,7 +8,10 @@
 
       <div class="contact-form__form-group">
         <label class="contact-form__label" for="name">Your Name:</label>
-        <input placeholder="Enter your name" class="contact-form__input" type="text" id="name" name="name" required />
+        <input placeholder="Enter your name" class="contact-form__input" type="text" id="name" formControlName="name" />
+        <ng-container *ngrxLet="form.get('name') as name">
+          <span class="error-message" *ngIf="name?.invalid && name?.touched"> Your Name is required </span>
+        </ng-container>
       </div>
 
       <div class="contact-form__form-group">
@@ -18,9 +21,16 @@
           class="contact-form__input"
           type="email"
           id="email"
-          name="email"
-          required
+          formControlName="email"
         />
+        <ng-container *ngrxLet="form.get('email') as email">
+          <span class="error-message" *ngIf="email?.hasError('required') && email?.touched">
+            Your Email is required
+          </span>
+          <span class="error-message" *ngIf="email?.hasError('email') && !email?.hasError('required')">
+            Invalid email format
+          </span>
+        </ng-container>
       </div>
 
       <div class="contact-form__form-group">
@@ -30,9 +40,11 @@
           class="contact-form__input"
           type="text"
           id="subject"
-          name="subject"
-          required
+          formControlName="subject"
         />
+        <ng-container *ngrxLet="form.get('subject') as subject">
+          <span class="error-message" *ngIf="subject?.invalid && subject?.touched"> Your Subject is required </span>
+        </ng-container>
       </div>
 
       <div class="contact-form__form-group">
@@ -40,15 +52,18 @@
         <textarea
           placeholder="Write your message here..."
           class="contact-form__textarea"
+          type="text"
           id="message"
-          name="message"
-          required
+          formControlName="message"
         ></textarea>
+        <ng-container *ngrxLet="form.get('message') as message">
+          <span class="error-message" *ngIf="message?.invalid && message?.touched"> Your Message is required </span>
+        </ng-container>
       </div>
 
-      <div class="contact-form__control">
-        <button class="contact-form__submit-btn" type="submit">Send Message</button>
-      </div>
+      <button class="contact-form__submit-btn" type="submit" (click)="onSubmit()" [disabled]="form.invalid">
+        Send Message
+      </button>
     </fieldset>
   </form>
 </section>
