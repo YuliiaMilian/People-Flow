@@ -12,7 +12,9 @@
           <label class="contact-form__label" for="name">Enter name</label>
         </p-floatLabel>
         <ng-container *ngrxLet="form.get('name') as name">
-          <span class="error-message" *ngIf="name?.invalid && name?.touched"> Your Name is required </span>
+          @if (name?.invalid && name?.touched) {
+            <span class="error-message">Your Name is required</span>
+          }
         </ng-container>
       </div>
 
@@ -22,12 +24,13 @@
           <label class="contact-form__label" for="email">Enter email</label>
         </p-floatLabel>
         <ng-container *ngrxLet="form.get('email') as email">
-          <span class="error-message" *ngIf="email?.hasError('required') && email?.touched">
-            Your Email is required
-          </span>
-          <span class="error-message" *ngIf="email?.hasError('email') && !email?.hasError('required')">
-            Invalid email format
-          </span>
+          @if (email?.hasError('required') && email?.touched) {
+            <span class="error-message">Your Email is required</span>
+          }
+
+          @if (email?.hasError('email') && !email?.hasError('required')) {
+            <span class="error-message">Invalid email format</span>
+          }
         </ng-container>
       </div>
 
@@ -38,7 +41,9 @@
         </p-floatLabel>
 
         <ng-container *ngrxLet="form.get('subject') as subject">
-          <span class="error-message" *ngIf="subject?.invalid && subject?.touched"> Your Subject is required </span>
+          @if (subject?.invalid && subject?.touched) {
+            <span class="error-message">Your Subject is required</span>
+          }
         </ng-container>
       </div>
 
@@ -50,7 +55,9 @@
         </p-floatLabel>
 
         <ng-container *ngrxLet="form.get('message') as message">
-          <span class="error-message" *ngIf="message?.invalid && message?.touched"> Your Message is required </span>
+          @if (message?.invalid && message?.touched) {
+            <span class="error-message">Your Message is required</span>
+          }
         </ng-container>
       </div>
 
