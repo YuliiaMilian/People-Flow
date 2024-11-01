@@ -39,7 +39,7 @@
 
   &__label {
     font-size: 16px;
-    color: #2E3A59;
+    color: #A9A9A9;
     margin-bottom: 5px;
     display: block;
   }
@@ -54,10 +54,6 @@
     border-radius: 10px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     background-color: #F1FAFD;
-
-    &::placeholder {
-      color: #A9A9A9;
-    }
 
     &:focus {
       border-color: #007BFF;
@@ -77,13 +73,12 @@
   }
 
   &__submit-btn {
-    display: block;
+    display: inline-grid;
     width: 100%;
     padding: 12px;
     font-size: 16px;
     font-weight: bold;
     color: #2E3A59;
-    background-color: #A9D6EB;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -102,6 +97,7 @@
       cursor: not-allowed;
     }
   }
+
 
   &__additional-info {
     margin-top: 20px;

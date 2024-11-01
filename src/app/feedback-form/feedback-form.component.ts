@@ -1,13 +1,16 @@
 import { NgIf } from '@angular/common';
-import { LetDeclaration } from '@angular/compiler';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LetDirective } from '@ngrx/component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { ButtonModule } from 'primeng/button';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @Component({
   selector: 'ngt-feedback-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, LetDirective],
+  imports: [ReactiveFormsModule, NgIf, LetDirective, AutoCompleteModule, FloatLabelModule, ButtonModule, InputTextareaModule],
   templateUrl: './feedback-form.component.html',
   styleUrl: './feedback-form.component.scss',
 })

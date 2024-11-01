@@ -7,63 +7,69 @@
       </header>
 
       <div class="contact-form__form-group">
-        <label class="contact-form__label" for="name">Your Name:</label>
-        <input placeholder="Enter your name" class="contact-form__input" type="text" id="name" formControlName="name" />
+        <p-floatLabel>
+          <input class="contact-form__input" type="text" id="name" formControlName="name" pInputTextarea />
+          <label class="contact-form__label" for="name">Enter name</label>
+        </p-floatLabel>
         <ng-container *ngrxLet="form.get('name') as name">
-          <span class="error-message" *ngIf="name?.invalid && name?.touched"> Your Name is required </span>
+          @if (name?.invalid && name?.touched) {
+            <span class="error-message">Your Name is required</span>
+          }
         </ng-container>
       </div>
 
       <div class="contact-form__form-group">
-        <label class="contact-form__label" for="email">Email:</label>
-        <input
-          placeholder="Enter your email"
-          class="contact-form__input"
-          type="email"
-          id="email"
-          formControlName="email"
-        />
+        <p-floatLabel>
+          <input class="contact-form__input" type="email" id="email" formControlName="email" pInputTextarea />
+          <label class="contact-form__label" for="email">Enter email</label>
+        </p-floatLabel>
         <ng-container *ngrxLet="form.get('email') as email">
-          <span class="error-message" *ngIf="email?.hasError('required') && email?.touched">
-            Your Email is required
-          </span>
-          <span class="error-message" *ngIf="email?.hasError('email') && !email?.hasError('required')">
-            Invalid email format
-          </span>
+          @if (email?.hasError('required') && email?.touched) {
+            <span class="error-message">Your Email is required</span>
+          }
+
+          @if (email?.hasError('email') && !email?.hasError('required')) {
+            <span class="error-message">Invalid email format</span>
+          }
         </ng-container>
       </div>
 
       <div class="contact-form__form-group">
-        <label class="contact-form__label" for="subject">Subject:</label>
-        <input
-          placeholder="Subject of your message"
-          class="contact-form__input"
-          type="text"
-          id="subject"
-          formControlName="subject"
-        />
+        <p-floatLabel>
+          <input class="contact-form__input" type="text" id="subject" formControlName="subject" pInputTextarea />
+          <label class="contact-form__label" for="subject">Write your subject</label>
+        </p-floatLabel>
+
         <ng-container *ngrxLet="form.get('subject') as subject">
-          <span class="error-message" *ngIf="subject?.invalid && subject?.touched"> Your Subject is required </span>
+          @if (subject?.invalid && subject?.touched) {
+            <span class="error-message">Your Subject is required</span>
+          }
         </ng-container>
       </div>
 
       <div class="contact-form__form-group">
-        <label class="contact-form__label" for="message">Your Message:</label>
-        <textarea
-          placeholder="Write your message here..."
-          class="contact-form__textarea"
-          type="text"
-          id="message"
-          formControlName="message"
-        ></textarea>
+        <p-floatLabel>
+          <textarea class="contact-form__textarea" formControlName="message" id="message" rows="4" pInputTextarea>
+          </textarea>
+          <label for="message" class="contact-form__label">Write your message here...</label>
+        </p-floatLabel>
+
         <ng-container *ngrxLet="form.get('message') as message">
-          <span class="error-message" *ngIf="message?.invalid && message?.touched"> Your Message is required </span>
+          @if (message?.invalid && message?.touched) {
+            <span class="error-message">Your Message is required</span>
+          }
         </ng-container>
       </div>
 
-      <button class="contact-form__submit-btn" type="submit" (click)="onSubmit()" [disabled]="form.invalid">
-        Send Message
-      </button>
+      <p-button
+        class="contact-form__submit-btn"
+        type="submit"
+        (click)="onSubmit()"
+        [disabled]="form.invalid"
+        label="Submit"
+        icon="pi pi-check"
+        iconPos="right"
+      />
     </fieldset>
   </form>
 </section>
