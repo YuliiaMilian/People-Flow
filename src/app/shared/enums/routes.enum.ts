@@ -11,4 +11,5 @@ export enum AppRoutes {
   SelfService = 'self-service',
   SettingGoals = 'setting-goals',
   HomePage = 'home',
+  Login = 'login-page'
 }

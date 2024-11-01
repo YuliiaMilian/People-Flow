@@ -13,6 +13,10 @@ const routes: Routes = [
     loadComponent: () => import('./home/home.component').then((x) => x.HomeComponent),
   },
   {
+    path: AppRoutes.Login,
+    loadComponent: () => import('./login-page/login-page.component').then((x) => x.LoginPageComponent),
+  },
+  {
     path: AppRoutes.Education,
     loadComponent: () => import('./education-certifications/education-certifications.component').then((x) => x.EducationCertificationsComponent),
   },
