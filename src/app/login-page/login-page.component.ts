@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 type LoginResponse = {
   accessToken: string;
@@ -33,22 +33,15 @@ export class LoginPageComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
-      this.httpClient
-        .post<LoginResponse>('http://localhost:3000/auth/login', this.loginForm.value, {
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-            // Authorization: `Bearer ${this.loginForm.value.accessToken}`,
-          }),
-        })
-        .subscribe({
-          next: (response) => {
-            console.log(response);
-            this.router.navigate(['/home']);
-          },
-          error: (error) => {
-            console.error('Login error:', error);
-          },
-        });
+      this.httpClient.post<LoginResponse>('http://localhost:3000/auth/login', this.loginForm.value).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          console.error('Login error:', error);
+        },
+      });
     }
   }
 }

@@ -2,19 +2,19 @@ import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
-  const authReqAppKey = req.clone({
-    headers: req.headers.set('appkey', '777777'),
-  });
+  let modifiedHeaders = req.headers.set('appkey', '777777').set('application-type', 'application/json');
 
-  if (!authReqAppKey.url.includes('login')) {
-    const error = new HttpErrorResponse({
-      error: { message: 'Invalid endpoint: "login" not found in URL' },
-      status: 400,
-      statusText: 'Bad Request',
-    });
+  if (req.url.includes('login')) {
+    const authReq = req.clone({ headers: modifiedHeaders });
 
-    return throwError(() => error);
+    return next(authReq);
   }
 
-  return next(authReqAppKey);
+  const error = new HttpErrorResponse({
+    error: { message: 'Invalid endpoint: only "login" endpoint is allowed' },
+    status: 400,
+    statusText: 'Bad Request',
+  });
+
+  return throwError(() => error);
 };
