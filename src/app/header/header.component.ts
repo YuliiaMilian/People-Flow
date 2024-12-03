@@ -36,7 +36,7 @@ export class HeaderComponent {
 
   onLogin(event: MouseEvent) {
     event.preventDefault();
-    this.router.navigate(['/login-page']);
+    this.router.navigate(['/login']);
   }
 
 

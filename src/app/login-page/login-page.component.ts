@@ -24,10 +24,8 @@ export class LoginPageComponent {
     private readonly httpClient: HttpClient,
   ) {
     this.loginForm = this.fb.group({
-      //email: ['', [Validators.required, Validators.email]],
-      username: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      // rememberMe: [false],
     });
   }
 

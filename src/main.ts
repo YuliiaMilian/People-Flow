@@ -39,7 +39,6 @@ bootstrapApplication(AppComponent, {
       connectInZone: true,
     }),
     REDUCER_PROVIDER,
-    provideHttpClient(withInterceptorsFromDi()),
     provideHttpClient(withInterceptors([tokenInterceptor]))
   ],
 }).catch((err: unknown) => console.error(err));
