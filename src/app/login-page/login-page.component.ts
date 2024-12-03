@@ -3,7 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+type LoginResponse = {
+  accessToken: string;
+};
 @Component({
   selector: 'ngt-login-page',
   standalone: true,
@@ -17,18 +21,34 @@ export class LoginPageComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private readonly httpClient: HttpClient,
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      //email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      rememberMe: [false],
+      // rememberMe: [false],
     });
   }
 
   onLogin() {
     if (this.loginForm.valid) {
-      const { email, password, rememberMe } = this.loginForm.value;
-      this.router.navigate(['/home']);
+      this.httpClient
+        .post<LoginResponse>('http://localhost:3000/auth/login', this.loginForm.value, {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            // Authorization: `Bearer ${this.loginForm.value.accessToken}`,
+          }),
+        })
+        .subscribe({
+          next: (response) => {
+            console.log(response);
+            this.router.navigate(['/home']);
+          },
+          error: (error) => {
+            console.error('Login error:', error);
+          },
+        });
     }
   }
 }
