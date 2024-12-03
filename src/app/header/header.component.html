@@ -2,61 +2,11 @@
   <div class="navbar__menu">
     <ng-content select="h3"></ng-content>
     <ng-content select="p"></ng-content>
-
-    <a class="navbar__menu-link" (click)="toggleCard('card1')">Why People Flow?</a>
-    <a class="navbar__menu-link" (click)="toggleCard('card2')">Our Platform</a>
-    <a class="navbar__menu-link" (click)="toggleCard('card3')">Help & Support</a>
-    <a class="navbar__menu-link" (click)="toggleCard('card4')">Feedback</a>
-    <a class="navbar__menu-link" (click)="toggleCard('card5')">Contact Us</a>
-
-    <p-card *ngIf="isCardVisible && activeCard === 'card1'" header="Understanding People Flow" class="animated-card">
-      <ul class="animated-card-options">
-        <li>Understanding People Flow</li>
-        <li>Impact on Productivity</li>
-        <li>Challenges in People Flow</li>
-        <li>Real-World Examples</li>
-      </ul>
-    </p-card>
-
-    <p-card *ngIf="isCardVisible && activeCard === 'card2'" header="Our Platform" class="animated-card">
-      <ul class="animated-card-options">
-        <li>Overview of Our Features</li>
-        <li>Integration Options</li>
-        <li>User Testimonials</li>
-        <li>Platform Updates</li>
-      </ul>
-    </p-card>
-
-    <p-card *ngIf="isCardVisible && activeCard === 'card3'" header="Help & Support" class="animated-card">
-      <ul class="animated-card-options">
-        <li>FAQs</li>
-        <li>Contact Support</li>
-        <li>Live Chat</li>
-        <li>Support Documentation</li>
-      </ul>
-    </p-card>
-
-    <p-card *ngIf="isCardVisible && activeCard === 'card4'" header="Feedback" class="animated-card">
-      <ul class="animated-card-options">
-        <li>Submit Your Feedback</li>
-        <li>Feedback Process</li>
-        <li>Read Customer Feedback</li>
-        <li>Feedback FAQs</li>
-      </ul>
-    </p-card>
-
-    <p-card *ngIf="isCardVisible && activeCard === 'card5'" header="Contact Us" class="animated-card">
-      <ul class="animated-card-options">
-        <li>Contact Form</li>
-        <li>Office Locations</li>
-        <li>Business Hours</li>
-        <li>Follow Us</li>
-      </ul>
-    </p-card>
+    <p-megaMenu [model]="items" />
   </div>
 
   <div class="navbar__auth-flow">
-    <a class="navbar__auth-button log-in" href="#log-in">Log in</a>
+    <a class="navbar__auth-button log-in" (click)="onLogin($event)" href="#">Log in</a>
     <a class="navbar__auth-button sign-up" href="#sign-up">Sign up</a>
   </div>
 </nav>

@@ -1,4 +1,4 @@
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 import { provideEffects } from '@ngrx/effects';
@@ -12,6 +12,7 @@ import { environment } from '@Environment';
 import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 import { MultiTranslateLoader } from './app/shared/loaders/multi-translate.loader';
+import { tokenInterceptor } from 'app/token.interceptor';
 
 if (environment.production) {
   enableProdMode();
@@ -38,6 +39,7 @@ bootstrapApplication(AppComponent, {
       connectInZone: true,
     }),
     REDUCER_PROVIDER,
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([tokenInterceptor]))
   ],
 }).catch((err: unknown) => console.error(err));
+
