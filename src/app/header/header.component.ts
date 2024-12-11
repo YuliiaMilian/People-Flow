@@ -1,13 +1,14 @@
 import { Component, ContentChild, ElementRef, Input } from '@angular/core';
-import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DropdownModule } from 'primeng/dropdown';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { MegaMenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngt-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, DropdownModule, CardModule],
+  imports: [CommonModule, FormsModule, MegaMenuModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -30,16 +31,60 @@ export class HeaderComponent {
     this.projectedParagraph.nativeElement.textContent = 'New paragraph';
   }
 
-  isCardVisible = false;
-  activeCard: string | null = null;
 
-  toggleCard(card: string) {
-    if (this.activeCard === card) {
-      this.isCardVisible = false;
-      this.activeCard = null;
-    } else {
-      this.activeCard = card;
-      this.isCardVisible = true;
-    }
+  constructor(private router: Router) {}
+
+  onLogin(event: MouseEvent) {
+    event.preventDefault();
+    this.router.navigate(['/login-page']);
   }
+
+
+  items: MegaMenuItem[] = [
+    {
+      label: 'Why People Flow?',
+      items: [
+        [{ label: 'Understanding People Flow' }],
+        [{ label: 'Impact on Productivity' }],
+        [{ label: 'Challenges in People Flow' }],
+        [{ label: 'Real-World Examples' }],
+      ],
+    },
+    {
+      label: 'Our Platform',
+      items: [
+        [{ label: 'Overview of Our Features' }],
+        [{ label: 'Integration Options' }],
+        [{ label: 'User Testimonials' }],
+        [{ label: 'Platform Updates' }],
+      ],
+    },
+    {
+      label: 'Help & Support',
+      items: [
+        [{ label: 'FAQs' }],
+        [{ label: 'Contact Support' }],
+        [{ label: 'Live Chat' }],
+        [{ label: 'Support Documentation' }],
+      ],
+    },
+    {
+      label: 'Feedback',
+      items: [
+        [{ label: 'Submit Your Feedback' }],
+        [{ label: 'Feedback Process' }],
+        [{ label: 'Read Customer Feedback' }],
+        [{ label: 'Feedback FAQs' }],
+      ],
+    },
+    {
+      label: 'Contact Us',
+      items: [
+        [{ label: 'Contact Form' }],
+        [{ label: 'Office Locations' }],
+        [{ label: 'Business Hours' }],
+        [{ label: 'Follow Us' }],
+      ],
+    },
+  ];
 }
